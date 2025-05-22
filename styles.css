@@ -1,4 +1,6 @@
-/* Styling for body */
+/* --------------------------------------
+   Base Global Styles
+----------------------------------------*/
 body {
   font-family: Arial, sans-serif;
   padding: 20px;
@@ -6,7 +8,13 @@ body {
   color: #333;
 }
 
-/* Styling for header element */
+h2 {
+  margin-bottom: 10px;
+}
+
+/* --------------------------------------
+   Header & Blog Title
+----------------------------------------*/
 header {
   display: flex;
   justify-content: center;
@@ -14,7 +22,7 @@ header {
   margin-bottom: 30px;
 }
 
-/* Styling for blog title */
+/* Blog Heading Title Styling */
 header h1 {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 2.2em;
@@ -28,25 +36,67 @@ header h1 {
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease;
 }
-/**/
-/**/
-/**/
-/**/
-/**/
-/**/
-/**/
-/**/
-/**/
-/**/
-/**/
-/**/
-/**/
-/**/
-/**/
-/**/
-/**/
-/**/
-/**/
-/**/
-/**/
-/**/
+
+/* --------------------------------------
+   Layout Containers
+----------------------------------------*/
+.form-section,
+.post-section {
+  background-color: white;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* --------------------------------------
+   Toggle Form Button
+----------------------------------------*/
+#toggleFormBtn {
+  background-color: #27ae60;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  font-size: 0.9em;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 12px;
+}
+
+#toggleFormBtn:hover {
+  background-color: #219150;
+}
+
+/* --------------------------------------
+   Collapsible Form Behavior
+----------------------------------------*/
+.form-section {
+  max-height: 100px;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+}
+
+/* Collapsed State */
+.form-section.collapsed {
+  max-height: 0;
+  padding: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  border: none;
+}
+
+/* --------------------------------------
+   Form Elements
+----------------------------------------*/
+form label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 4px;
+  box-sizing: border-box;
+}
