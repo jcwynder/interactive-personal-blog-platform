@@ -122,4 +122,35 @@ postForm.addEventListener("submit", function (e) {
 
   // If the form is not valid, stops the function execution
   if (!valid) return;
+
+  // Checks if a post is currently being edited (i.e., 'editingPostId' has a value)
+  if (editingPostId) {
+    // If editing, finds the index of the post in the 'posts' array using its ID
+    const postIndex = posts.findIndex((post) => post.id === editingPostId);
+    // If the post is found, updates its title, content, and sets the "editedAt" timestamp
+    if (postIndex > -1) {
+      posts[postIndex].title = title;
+      posts[postIndex].content = content;
+      posts[postIndex].editedAt = new Date().toISOString();
+    }
+  } else {
+    // If not editing, creates a new post object with a generated ID, title, content, and creation timestamp
+    const newPost = {
+      id: generateId(),
+      title,
+      content,
+      timestamp: new Date().toISOString(),
+      // New posts initially have no "editedAt" timestamp
+      editedAt: null,
+    };
+    // Adds the new post to the "posts" array
+    posts.push(newPost);
+  }
+
+  // Saves the updated "posts" array to local storage
+  savePostsToStorage();
+  // Re-renders all posts on the page to reflect the changes
+  renderPosts();
+  // Clears the form fields and resets the "editingPostId"
+  clearForm();
 });
