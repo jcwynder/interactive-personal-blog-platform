@@ -91,3 +91,35 @@ function renderPosts() {
     postsContainer.appendChild(postDiv);
   });
 }
+
+// ===========================================
+// 5. Form Submit Handler
+// ===========================================
+postForm.addEventListener("submit", function (e) {
+  // Prevents the default form submission, which would cause a page reload
+  e.preventDefault();
+
+  // Retrieves the trimmed values from the title and content input fields
+  const title = titleInput.value.trim();
+  const content = contentInput.value.trim();
+
+  // Initializes a 'valid' flag for form validation and clears previous error messages
+  let valid = true;
+  titleError.textContent = "";
+  contentError.textContent = "";
+
+  // Validates if the title input is empty, and If so, displays an error message and sets 'valid' to false
+  if (!title) {
+    titleError.textContent = "Title is required.";
+    valid = false;
+  }
+
+  // Validates if the title input is empty, and If so, displays an error message and sets 'valid' to false
+  if (!content) {
+    contentError.textContent = "Content is required.";
+    valid = false;
+  }
+
+  // If the form is not valid, stops the function execution
+  if (!valid) return;
+});
