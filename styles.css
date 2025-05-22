@@ -161,15 +161,6 @@ button:hover {
   padding-bottom: 4px;
 }
 
-.post-title a {
-  text-decoration: none;
-  color: #2c3e50;
-}
-
-.post-title a:hover {
-  text-decoration: underline;
-}
-
 /* --------------------------------------
    Post Content Styling
 ----------------------------------------*/
