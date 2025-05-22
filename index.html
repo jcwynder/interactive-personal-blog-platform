@@ -22,17 +22,27 @@
         <label>
           Title:
           <input type="text" id="title" />
+          <!-- Placeholder for error message if input is invalid -->
           <span class="error"></span>
         </label>
         <!-- Input field for blog post content -->
         <label>
           Content:
           <textarea id="content"></textarea>
+          <!-- Placeholder for error message if input is invalid -->
           <span id="contentError" class="error"></span>
         </label>
         <!-- Button to submit input data for blog post -->
         <button type="submit">Submit</button>
       </form>
+    </section>
+
+    <!-- Section for blog posts -->
+    <section class="posts-section">
+      <h2>Blog Posts</h2>
+      <div id="postsContainer">
+        <!-- Posts will go here -->
+      </div>
     </section>
   </body>
 </html>
