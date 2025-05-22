@@ -1,12 +1,14 @@
 // ===========================================
 // 1. Global State
 // ===========================================
+
 let posts = []; // Initializes empty array to store post objects
 let editingPostId = null; // Variable to hold ID of the post being edited, or null if no post is being edited.
 
 // ===========================================
 // 2. DOM Element References
 // ===========================================
+
 const postForm = document.getElementById("postForm");
 const titleInput = document.getElementById("title");
 const contentInput = document.getElementById("content");
@@ -19,6 +21,7 @@ const formSection = document.getElementById("formSection");
 // ===========================================
 // 3. Utility Functions
 // ===========================================
+
 function generateId() {
   // Generates a unique ID for a new post using the current timestamp
   return Date.now().toString();
@@ -54,6 +57,7 @@ function clearForm() {
 // ===========================================
 // 4. Render Function
 // ===========================================
+
 function renderPosts() {
   // Clears current content of the posts container to prepare for re-rendering
   postsContainer.innerHTML - "";
@@ -95,6 +99,7 @@ function renderPosts() {
 // ===========================================
 // 5. Form Submit Handler
 // ===========================================
+
 postForm.addEventListener("submit", function (e) {
   // Prevents the default form submission, which would cause a page reload
   e.preventDefault();
@@ -153,4 +158,67 @@ postForm.addEventListener("submit", function (e) {
   renderPosts();
   // Clears the form fields and resets the "editingPostId"
   clearForm();
+});
+
+// ===========================================
+// 6. Event Delegation for Edit/Delete
+// ===========================================
+
+postsContainer.addEventListener("click", function (e) {
+  // Checks if the clicked element has the class "delete-btn"
+  if (e.target.classList.contains("delete-btn")) {
+    // Retrieves the ID of the post to be deleted from the button's data-id attribute
+    const id = e.target.dataset.id;
+    // Filters the "posts" array, keeping only posts whose IDs do not match the ID of the post to be deleted
+    posts = posts.filter((post) => post.id !== id);
+    // Saves the updated (post-deleted) array to local storage
+    savePostsToStorage();
+    // Re-renders the posts to update the display, removing the deleted post
+    renderPosts();
+  }
+
+  // Checks if the clicked element has the class "edit-btn"
+  if (e.target.classList.contains("edit-btn")) {
+    // Retrieves the ID of the post to be edited from the button's data-id attribute
+    const id = e.target.dataset.id;
+    // Finds the post object in the "posts" array that matches the ID
+    const post = posts.find((p) => p.id === id);
+    // If the post is found:
+    if (post) {
+      // Populates the title and content input fields with the post's current data
+      titleInput.value = post.title;
+      contentInput.value = post.content;
+      // Sets "editingPostId" to the ID of the post being edited
+      editingPostId = id;
+
+      // Checks if the form section is currently collapsed
+      if (formSection.classList.contains("collapsed")) {
+        // If collapsed, removes the "collapsed" class to make the form visible
+        formSection.classList.remove("collapsed");
+        // Changes the text of the toggle button to indicate it will now close the form
+        toggleFormBtn.textContent = "× Close Form";
+      }
+    }
+  }
+});
+
+// ===========================================
+// 7. Toggle Form Visibility
+// ===========================================
+
+// Adds an event listener to the "toggleFormBtn" that triggers when it's clicked
+toggleFormBtn.addEventListener("click", () => {
+  // Toggles the "collapsed" class on the `formSection`. This will show or hide the form based on its current state
+  formSection.classList.toggle("collapsed");
+
+  // Checks if the "formSection" now has the "collapsed" class
+  if (formSection.classList.contains("collapsed")) {
+    // If it's collapsed, changes the button text to "+ New Post" to indicate it will expand the form
+    toggleFormBtn.textContent = "+ New Post";
+    // Optionally clears the form fields when the form is collapsed, resetting it for a new entry
+    clearForm();
+  } else {
+    // If the form is not collapsed (meaning it's visible), changes the button text to "× Close Form"
+    toggleFormBtn.textContent = "× Close Form";
+  }
 });
