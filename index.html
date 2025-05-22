@@ -3,7 +3,36 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
     <title>Interactive Personal Blog Platform</title>
   </head>
-  <body></body>
+  <body>
+    <!-- Header element for blog title -->
+    <header>Personal Blog</header>
+    <!-- Button element to expand/collapse create/edit section -->
+    <button id="toggleFormBtn">+ New Post</button>
+    <!-- Section for create/edit form -->
+    <section id="formSection" class="form-section collapsed">
+      <!-- Action title for blog form -->
+      <h2>Create/Edit Blog Post</h2>
+      <!-- Form for create/edit functionality -->
+      <form id="postForm">
+        <!-- Input field for blog post title -->
+        <label>
+          Title:
+          <input type="text" id="title" />
+          <span class="error"></span>
+        </label>
+        <!-- Input field for blog post content -->
+        <label>
+          Content:
+          <textarea id="content"></textarea>
+          <span id="contentError" class="error"></span>
+        </label>
+        <!-- Button to submit input data for blog post -->
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+  </body>
 </html>
