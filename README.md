@@ -2,12 +2,12 @@
 
 - [Interactive Personal Blog Platform](#interactive-personal-blog-platform)
   - [Overview](#overview)
-  - [Preview](#preview)
+  - [Project Preview](#project-preview)
   - [Development](#development)
 
 ## Overview
 
-For this assignment, I was tasked with building an **Interactive Personal Blog Platform** with the intended goals:
+For this project, I was tasked with building an **Interactive Personal Blog Platform** with the intended goals:
 
 **Create New Posts**:
 
@@ -41,13 +41,27 @@ For this assignment, I was tasked with building an **Interactive Personal Blog P
 
 In order to create a dynamic and interactive blog, I applied a wide range of concepts, including **DOM manipulation**, **event handling**, **JavaScript form validation**, and **utilizing local storage for data persistence**.
 
-[Click Here to Access Interactive Personal Blog Platform](https://github.com/jcwynder/interactive-personal-blog-platform)
+[Click Here to Access Interactive Personal Blog Platform](https://htmlpreview.github.io/?https://github.com/jcwynder/interactive-personal-blog-platform/blob/main/index.html)
 
-## Preview
+## Project Preview
+
+Visual Displays of Project:
+
+- Initial rendering of blog platform with no saved user data
+  ![Design preview for Interactive Personal Blog Platform (initial state rendering)](images/InteractivePersonalBlogPlatformPreview.png)
+
+- Rendering to display selection option in dropdown menu
+  ![Design preview for Interactive Personal Blog Platform's dropdown menu options)](images/InteractivePersonalBlogPlatformPreview2.png)
+
+- Rendering to showcase create/edit form population after "+ New Post" button is clicked
+  ![Design preview for Interactive Personal Blog Platform that showcases the create/edit blog post's form population (populates after user clicks "+ New Post" button or clicks the "Edit" button)](images/InteractivePersonalBlogPlatformPreview3.png)
+
+- Rendering to showcase a display of blogs posted. Within the posts' rendering includes the posts' title and content fields, posting date, last edit posting, action buttons to edit the posts' field data or to delete the post, and filtering by one of the selected dropdown options ("Oldest First").
+  ![Design preview for Interactive Personal Blog Platform that showcases visual display of blogs posted (shows title nd content fields, posting date, last edit posting, action buttons to edit the posts' field information or to delete the post, and filtering by the "Oldest First" dropdown option)](images/InteractivePersonalBlogPlatformPreview4.png)
 
 ## Development
 
-The development for this assignment began with me establishing the type of design I wanted to implement for the blog platform's layout. Basec on the final presentation for this platform, I would describe the overall design as **modern**, **clean**, and **user-friendly**.
+The development for this project began with me establishing the type of design I wanted to implement for the blog platform's layout. Basec on the final presentation for this platform, I would describe the overall design as **modern**, **clean**, and **user-friendly**.
 
 Below is a list of key design elements and features applied:
 
