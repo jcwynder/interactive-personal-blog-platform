@@ -41,7 +41,7 @@ header h1 {
    Layout Containers
 ----------------------------------------*/
 .form-section,
-.post-section {
+.posts-section {
   background-color: white;
   padding: 20px;
   margin-bottom: 20px;
@@ -71,7 +71,7 @@ header h1 {
    Collapsible Form Behavior
 ----------------------------------------*/
 .form-section {
-  max-height: 100px;
+  max-height: 500px;
   overflow: hidden;
   transition: max-height 0.4s ease, padding 0.4s ease;
 }

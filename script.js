@@ -2,7 +2,7 @@
 // 1. Global State
 // ===========================================
 
-let posts = []; // Initializes empty array to store post objects
+let posts = []; // Initializes an empty array to store post objects
 let editingPostId = null; // Variable to hold ID of the post being edited, or null if no post is being edited.
 
 // ===========================================
@@ -39,12 +39,13 @@ function savePostsToStorage() {
 }
 
 function loadPostsFromStorage() {
-  /* 
-  Loads posts from local storage. If posts exist, it parses the JSON string back into an array; 
+  /*
+  Loads posts from local storage. If posts exist, it parses the JSON string back into an array;
   Otherwise, it initializes an empty array
   */
   const stored = localStorage.getItem("posts");
-  posts = stored ? JSON.parse : [];
+  // FIX: Pass 'stored' to JSON.parse
+  posts = stored ? JSON.parse(stored) : [];
 }
 
 function clearForm() {
@@ -60,14 +61,15 @@ function clearForm() {
 
 function renderPosts() {
   // Clears current content of the posts container to prepare for re-rendering
-  postsContainer.innerHTML - "";
+  // FIX: Changed '-' to '='
+  postsContainer.innerHTML = "";
 
   // Iterates over each post in the 'posts' array
   posts.forEach((post) => {
     // Creates a new div element for each post
     const postDiv = document.createElement("div");
-    // Assigns a CSS class for styling
-    postDiv.className = "posts";
+    // Assigns a CSS class for styling (FIX: Changed "posts" to "post" for consistency)
+    postDiv.className = "post";
 
     // Generates the HTML for the creation timestamp
     const created = `<div class="post-timestamp"><em>Posted on: ${formatTimestamp(
@@ -119,7 +121,7 @@ postForm.addEventListener("submit", function (e) {
     valid = false;
   }
 
-  // Validates if the title input is empty, and If so, displays an error message and sets 'valid' to false
+  // Validates if the content input is empty, and If so, displays an error message and sets 'valid' to false
   if (!content) {
     contentError.textContent = "Content is required.";
     valid = false;
@@ -222,3 +224,12 @@ toggleFormBtn.addEventListener("click", () => {
     toggleFormBtn.textContent = "× Close Form";
   }
 });
+
+// ===========================================
+// 8. Initialize App
+// ===========================================
+
+// Loads any previously saved posts from local storage into the "posts" array when the application starts
+loadPostsFromStorage();
+// Renders all loaded posts onto the page, displaying them to the user
+renderPosts();
