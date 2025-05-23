@@ -18,6 +18,7 @@ const contentError = document.getElementById("contentError");
 const postsContainer = document.getElementById("postsContainer");
 const toggleFormBtn = document.getElementById("toggleFormBtn");
 const formSection = document.getElementById("formSection");
+const sortSelect = document.getElementById("sortSelect");
 
 // ===========================================
 // 3. Utility Functions
@@ -52,10 +53,18 @@ function loadPostsFromStorage() {
 }
 
 function clearForm() {
-  // Clears the input fields of the post form and resets the "editingPostId"
+  // Clears the input fields (as well as its error messages) of the post form and resets the "editingPostId"
   titleInput.value = "";
   contentInput.value = "";
+  titleError.textContent = "";
+  contentError.textContent = "";
   editingPostId = null;
+
+  // Collapses the form after submission
+  if (!formSection.classList.contains("collapsed")) {
+    formSection.classList.add("collapsed");
+    toggleFormBtn.textContent = "+ New Post";
+  }
 }
 
 // ===========================================
@@ -115,7 +124,7 @@ function renderPosts() {
     const created = `<div class="post-timestamp"><em>Posted on: ${formatTimestamp(
       post.timestamp
     )}</em></div>`;
-    // Checks if the post has been edited, if so, generates the HTML for the edited timestamp
+    // Checks if the post has been edited, and if so, generates the HTML for the edited timestamp
     const edited = post.editedAt
       ? `<div class="post-timestamp"><em>Last edited: ${formatTimestamp(
           post.editedAt
@@ -155,13 +164,13 @@ postForm.addEventListener("submit", function (e) {
   titleError.textContent = "";
   contentError.textContent = "";
 
-  // Validates if the title input is empty, and If so, displays an error message and sets 'valid' to false
+  // Validates if the title input is empty, and if so, displays an error message and sets 'valid' to false
   if (!title) {
     titleError.textContent = "Title is required.";
     valid = false;
   }
 
-  // Validates if the content input is empty, and If so, displays an error message and sets 'valid' to false
+  // Validates if the content input is empty, and if so, displays an error message and sets 'valid' to false
   if (!content) {
     contentError.textContent = "Content is required.";
     valid = false;
@@ -255,18 +264,36 @@ postsContainer.addEventListener("click", function (e) {
 
 // Adds an event listener to the "toggleFormBtn" that triggers when it's clicked
 toggleFormBtn.addEventListener("click", () => {
-  // Toggles the "collapsed" class on the `formSection`. This will show or hide the form based on its current state
+  // Checks if the form section is currently visible (not collapsed)
+  const isFormOpen = !formSection.classList.contains("collapsed");
+
+  // Determines if there are any unsaved changes in the form inputs:
+  const hasUnsavedChanges =
+    titleInput.value.trim() !== "" || // Checks if title input has text
+    contentInput.value.trim() !== "" || // Checks if content input has text
+    editingPostId !== null; // Check if a post is currently being edited
+
+  // If the form is open and there are unsaved changes
+  if (isFormOpen && hasUnsavedChanges) {
+    // Confirms with the user if they want to discard unsaved changes and close the form
+    const confirmClose = confirm(
+      "You have unsaved changes. Discard and close the form?"
+    );
+    // Stops function execution if user cancels
+    if (!confirmClose) return;
+  }
+
+  // Toggle the 'collapsed' class on the form section to show/hide it
   formSection.classList.toggle("collapsed");
 
-  // Checks if the "formSection" now has the "collapsed" class
+  // Update the text content of the toggle button based on the form's visibility
+  toggleFormBtn.textContent = formSection.classList.contains("collapsed")
+    ? "+ New Post" // If the form is collapsed, display "New Post"
+    : "× Close Form"; // If the form is open, display "Close Form"
+
+  // Clear the form only when it's being collapsed
   if (formSection.classList.contains("collapsed")) {
-    // If it's collapsed, changes the button text to "+ New Post" to indicate it will expand the form
-    toggleFormBtn.textContent = "+ New Post";
-    // Optionally clears the form fields when the form is collapsed, resetting it for a new entry
-    clearForm();
-  } else {
-    // If the form is not collapsed (meaning it's visible), changes the button text to "× Close Form"
-    toggleFormBtn.textContent = "× Close Form";
+    clearForm(); // This includes resetting fields and editing state
   }
 });
 
