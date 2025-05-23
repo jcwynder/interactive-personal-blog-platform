@@ -38,8 +38,76 @@ For this assignment, I was tasked with building an **Interactive Personal Blog P
 - When the page is loaded or refreshed, any posts previously saved in `localStorage` should be retrieved and displayed.
 - Updates (from edits) and deletions must also be reflected in `localStorage`.
 
-In order to create a dynamic and interactive form, I applied a wide range of concepts, including **DOM manipulation**, **event handling**, **JavaScript form validation**, and **utilizing local storage for data persistence**.
+In order to create a dynamic and interactive blog, I applied a wide range of concepts, including **DOM manipulation**, **event handling**, **JavaScript form validation**, and **utilizing local storage for data persistence**.
 
 [Click Here to Access Interactive Personal Blog Platform](https://github.com/jcwynder/interactive-personal-blog-platform)
 
 ## Development
+
+The development for this assignment began with me establishing the type of design I wanted to implement for the blog platform's layout. Basec on the final presentation for this platform, I would describe the overall design as **modern**, **clean**, and **user-friendly**.
+
+Below is a list of key design elements and features applied:
+
+1. Header Design
+
+- **Blog Title**: Blog's title is prominently displayed at the top center of the page in a **gradient background** (blue to green). It uses a **bold font** with a slight **text shadow** and **rounded corners** for a professional look.
+
+- **Responsive**: The header and blog title are centered, making the design simple and clean, while adapting well to different screen sizes.
+
+2. Content Layout
+
+- **Two Main Sections**:
+
+  - **Post Section**: Displays all blog posts, dynamically rendered using JavaScript. Each post appears as a card, styled with a **border** and **rounded corners**, with subtle hover effects (elevating and shadow effects) to make it feel interactive and engaging.
+
+  - **Form Section (New Post Form)**: This area is hidden or collapsed by default but can be revealed by clicking the "**New Post**" button. Form is clean, with minimal distractions, allowing users to enter a **title** and **content** for their blog post.
+
+- **Post Cards**:
+
+  - Each blog post has a **title**, **content**, and **timestamps** (created and edited), allowing for easy readability and organization.
+
+  - **Buttons**: Each post includes **Edit** and **Delete buttons**, which are neatly aligned in a row for better control. These buttons have a matching blue color to align with the overall theme.
+
+3. Post Interaction
+
+- **Edit and Delete Buttons**: These buttons provide interactivity for users, allowing them to modify or delete posts. The use of **event delegation** ensures that any new posts or dynamic elements that are added will still be functional.
+
+- **Form Validation**: The title and content fields are validated to prevent empty submissions, providing a clear error message if the fields are left blank.
+
+4. Form Toggle & Collapse
+
+- The "**New Post**" form is **collapsible** using a **toggle button**. When clicked, it **slides in or out**, depending on the user's actions.
+
+- The **collapsed state** is handled using a simple CSS transition with a smooth easing effect.
+
+- Implemented **auto-collapse** and **confirm discard changes** functionality, ensuring the user can discard or keep changes made to the form before closing it.
+
+5. Floating Action Button (Overlay Button)
+
+- The **floating button** ("**New Post**" button) is intended to be **fixed** in a position (bottom-right corner by default). This provides easy access to the form while users can continue scrolling through the page.
+
+6. Post Sorting
+
+- Added a sort dropdown to the page, giving users control over how they view the posts: by **newest**, **oldest**, or **alphabetically by title**.
+
+- The selected sorting preference is saved to `localStorage`, ensuring that the user's settings persist across sessions.
+
+7. Responsive Design Considerations
+
+- The layout is styled using relative units, like `em` and `%`, making it responsive across different screen sizes.
+
+- The form elements are designed to take the full width of their container, ensuring a clean and easy-to-use input experience.
+
+8. Error Handling
+
+- The form displays **error messages** (red text) next to the title and content fields if validation fails, providing clear guidance to the user.
+
+9. Empty State Message
+
+- If no posts exist, a helpful "**No blog posts yet**" message is shown, prompting the user to add a new post. This improves the user experience when the page has no content.
+
+10. Smooth Transitions and Hover Effects
+
+- Posts have subtle animations like **hover effects** that lift the post card slightly and give a shadow, providing a more interactive, modern feel.
+
+- The **form transition** (for collapsing and expanding the form) makes the experience smooth and aesthetically pleasing, giving the user a sense of control over the interface.
