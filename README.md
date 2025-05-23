@@ -3,7 +3,18 @@
 - [Interactive Personal Blog Platform](#interactive-personal-blog-platform)
   - [Overview](#overview)
   - [Project Preview](#project-preview)
+    - [Visual Displays of Project:](#visual-displays-of-project)
   - [Development](#development)
+    - [1. Header Design](#1-header-design)
+    - [2. Content Layout](#2-content-layout)
+    - [3. Post Interaction](#3-post-interaction)
+    - [4. Form Toggle \& Collapse](#4-form-toggle--collapse)
+    - [5. Floating Action Button (Overlay Button)](#5-floating-action-button-overlay-button)
+    - [6. Post Sorting](#6-post-sorting)
+    - [7. Responsive Design Considerations](#7-responsive-design-considerations)
+    - [8. Error Handling](#8-error-handling)
+    - [9. Empty State Message](#9-empty-state-message)
+    - [10. Smooth Transitions and Hover Effects](#10-smooth-transitions-and-hover-effects)
 
 ## Overview
 
@@ -45,7 +56,7 @@ In order to create a dynamic and interactive blog, I applied a wide range of con
 
 ## Project Preview
 
-Visual Displays of Project:
+### Visual Displays of Project:
 
 - Initial rendering of blog platform with no saved user data
   ![Design preview for Interactive Personal Blog Platform (initial state rendering)](images/InteractivePersonalBlogPlatformPreview.png)
@@ -65,13 +76,13 @@ The development for this project began with me establishing the type of design I
 
 Below is a list of key design elements and features applied:
 
-1. Header Design
+### 1. Header Design
 
 - **Blog Title**: Blog's title is prominently displayed at the top center of the page in a **gradient background** (blue to green). It uses a **bold font** with a slight **text shadow** and **rounded corners** for a professional look.
 
 - **Responsive**: The header and blog title are centered, making the design simple and clean, while adapting well to different screen sizes.
 
-2. Content Layout
+### 2. Content Layout
 
 - **Two Main Sections**:
 
@@ -85,13 +96,13 @@ Below is a list of key design elements and features applied:
 
   - **Buttons**: Each post includes **Edit** and **Delete buttons**, which are neatly aligned in a row for better control. These buttons have a matching blue color to align with the overall theme.
 
-3. Post Interaction
+### 3. Post Interaction
 
 - **Edit and Delete Buttons**: These buttons provide interactivity for users, allowing them to modify or delete posts. The use of **event delegation** ensures that any new posts or dynamic elements that are added will still be functional.
 
 - **Form Validation**: The title and content fields are validated to prevent empty submissions, providing a clear error message if the fields are left blank.
 
-4. Form Toggle & Collapse
+### 4. Form Toggle & Collapse
 
 - The "**New Post**" form is **collapsible** using a **toggle button**. When clicked, it **slides in or out**, depending on the user's actions.
 
@@ -99,31 +110,31 @@ Below is a list of key design elements and features applied:
 
 - Implemented **auto-collapse** and **confirm discard changes** functionality, ensuring the user can discard or keep changes made to the form before closing it.
 
-5. Floating Action Button (Overlay Button)
+### 5. Floating Action Button (Overlay Button)
 
 - The **floating button** ("**New Post**" button) is intended to be **fixed** in a position (bottom-right corner by default). This provides easy access to the form while users can continue scrolling through the page.
 
-6. Post Sorting
+### 6. Post Sorting
 
 - Added a sort dropdown to the page, giving users control over how they view the posts: by **newest**, **oldest**, or **alphabetically by title**.
 
 - The selected sorting preference is saved to `localStorage`, ensuring that the user's settings persist across sessions.
 
-7. Responsive Design Considerations
+### 7. Responsive Design Considerations
 
 - The layout is styled using relative units, like `em` and `%`, making it responsive across different screen sizes.
 
 - The form elements are designed to take the full width of their container, ensuring a clean and easy-to-use input experience.
 
-8. Error Handling
+### 8. Error Handling
 
 - The form displays **error messages** (red text) next to the title and content fields if validation fails, providing clear guidance to the user.
 
-9. Empty State Message
+### 9. Empty State Message
 
 - If no posts exist, a helpful "**No blog posts yet**" message is shown, prompting the user to add a new post. This improves the user experience when the page has no content.
 
-10. Smooth Transitions and Hover Effects
+### 10. Smooth Transitions and Hover Effects
 
 - Posts have subtle animations like **hover effects** that lift the post card slightly and give a shadow, providing a more interactive, modern feel.
 
