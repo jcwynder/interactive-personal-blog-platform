@@ -41,19 +41,23 @@
 
     <!-- Section for blog posts -->
     <section class="posts-section">
-      <h2>Blog Posts</h2>
+      <div class="controls-container">
+        <!-- Blog Post Heading -->
+        <h2>Blog Posts</h2>
 
-      <!-- Sort Dropdown -->
-      <label for="sortSelect" style="display: block; margin-top: 8px"
-        >Sort Posts:</label
-      >
-      <!-- Selection options for sorting -->
-      <select id="sortSelect" aria-label="Sort posts">
-        <option value="newest">Newest First</option>
-        <option value="oldest">Oldest First</option>
-        <option value="title">Title (A-Z)</option>
-      </select>
+        <!-- Sort Dropdown -->
+        <label for="sortSelect" style="display: block; margin-top: 8px"
+          >Sort Posts:</label
+        >
+        <!-- Selection options for sorting -->
+        <select id="sortSelect" aria-label="Sort posts">
+          <option value="newest">Newest First</option>
+          <option value="oldest">Oldest First</option>
+          <option value="title">Title (A-Z)</option>
+        </select>
+      </div>
 
+      <!-- Posts container -->
       <div id="postsContainer">
         <!-- Posts will go here -->
       </div>

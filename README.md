@@ -2,6 +2,7 @@
 
 - [Interactive Personal Blog Platform](#interactive-personal-blog-platform)
   - [Overview](#overview)
+  - [Preview](#preview)
   - [Development](#development)
 
 ## Overview
@@ -10,7 +11,7 @@ For this assignment, I was tasked with building an **Interactive Personal Blog P
 
 **Create New Posts**:
 
-- A form with fields for a post title and post content (e.g., using `<input type="text"`> for title and `<textarea>` for content).
+- A form with fields for a post title and post content (e.g., using `<input type="text">` for title and `<textarea>` for content).
 - Upon submission, the new post should be added to a list of posts displayed on the page.
 - The form should be validated: both title and content are required.
 - Display custom, user-friendly error messages if validation fails.
@@ -41,6 +42,8 @@ For this assignment, I was tasked with building an **Interactive Personal Blog P
 In order to create a dynamic and interactive blog, I applied a wide range of concepts, including **DOM manipulation**, **event handling**, **JavaScript form validation**, and **utilizing local storage for data persistence**.
 
 [Click Here to Access Interactive Personal Blog Platform](https://github.com/jcwynder/interactive-personal-blog-platform)
+
+## Preview
 
 ## Development
 

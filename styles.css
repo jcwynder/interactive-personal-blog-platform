@@ -22,7 +22,6 @@ header {
   margin-bottom: 30px;
 }
 
-/* Blog Heading Title Styling */
 header h1 {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 2.2em;
@@ -47,6 +46,14 @@ header h1 {
   margin-bottom: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.posts-section {
+  margin-top: 30px;
+}
+
+#postsContainer {
+  margin-top: 20px;
 }
 
 /* --------------------------------------
@@ -76,26 +83,26 @@ header h1 {
 /* --------------------------------------
    Sort Dropdown
 ----------------------------------------*/
-#sortSelect {
-  padding: 6px 12px;
+.controls-container select {
+  padding: 8px 16px;
   font-size: 1rem;
   border: 1px solid #ccc;
-  border-radius: 4px;
-  background-color: white;
+  border-radius: 6px;
+  background-color: #ffffff;
   color: #333;
   cursor: pointer;
-  transition: border-color 0.2s ease;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
   outline: none;
-  min-width: 160px;
+  width: 100%;
 }
 
-#sortSelect:hover {
-  border-color: #666;
+.controls-container select:hover {
+  border-color: #3498db;
 }
 
-#sortSelect:focus {
-  border-color: #007bff;
-  box-shadow: 0 0 4px rgba(0, 123, 255, 0.5);
+.controls-container select:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 6px rgba(52, 152, 219, 0.3);
 }
 
 /* --------------------------------------
@@ -107,7 +114,6 @@ header h1 {
   transition: max-height 0.4s ease, padding 0.4s ease;
 }
 
-/* Collapsed State */
 .form-section.collapsed {
   max-height: 0;
   padding: 0;
@@ -158,6 +164,21 @@ button:hover {
 }
 
 /* --------------------------------------
+   Blog Post Heading
+----------------------------------------*/
+.controls-container h2 {
+  margin: 0 0 12px 0; /* Add space below for clarity */
+  font-size: 1.8em; /* Increase size for prominence */
+  font-weight: 700; /* Make the heading bold */
+  color: #333; /* Dark gray for better contrast */
+  text-align: left; /* Left-align for consistency */
+  letter-spacing: 0.5px; /* Slight letter-spacing for elegance */
+  text-transform: uppercase; /* Optional: Adds emphasis */
+  padding-bottom: 8px; /* Space between heading and the following elements */
+  border-bottom: 2px solid #3498db; /* Adds a clean bottom border for a more defined look */
+}
+
+/* --------------------------------------
    Blog Post Container
 ----------------------------------------*/
 .post {
@@ -170,7 +191,6 @@ button:hover {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* On hover, give post a subtle elevation */
 .post:hover {
   transform: translateY(-4px);
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
