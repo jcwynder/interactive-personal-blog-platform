@@ -1,5 +1,9 @@
 # Interactive Personal Blog Platform
 
+- [Interactive Personal Blog Platform](#interactive-personal-blog-platform)
+  - [Overview](#overview)
+  - [Development](#development)
+
 ## Overview
 
 For this assignment, I was tasked with building an **Interactive Personal Blog Platform** with the intended goals:

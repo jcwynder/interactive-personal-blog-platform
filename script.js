@@ -253,6 +253,9 @@ postsContainer.addEventListener("click", function (e) {
         formSection.classList.remove("collapsed");
         // Changes the text of the toggle button to indicate it will now close the form
         toggleFormBtn.textContent = "× Close Form";
+
+        // Scrolls to form input after "Edit" button is clicked
+        formSection.scrollIntoView({ behavior: "smooth", block: "start" });
       }
     }
   }
@@ -293,7 +296,11 @@ toggleFormBtn.addEventListener("click", () => {
 
   // Clear the form only when it's being collapsed
   if (formSection.classList.contains("collapsed")) {
-    clearForm(); // This includes resetting fields and editing state
+    // This includes resetting fields and editing state
+    clearForm();
+  } else {
+    // Scrolls to form input after "New Post" button is clicked
+    formSection.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 });
 
