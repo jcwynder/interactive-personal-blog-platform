@@ -171,6 +171,11 @@ postsContainer.addEventListener("click", function (e) {
   if (e.target.classList.contains("delete-btn")) {
     // Retrieves the ID of the post to be deleted from the button's data-id attribute
     const id = e.target.dataset.id;
+
+    // Confirmation prompt before deleting
+    const confirmed = confirm("Are you sure you want to delete this post?");
+    if (!confirmed) return;
+
     // Filters the "posts" array, keeping only posts whose IDs do not match the ID of the post to be deleted
     posts = posts.filter((post) => post.id !== id);
     // Saves the updated (post-deleted) array to local storage
