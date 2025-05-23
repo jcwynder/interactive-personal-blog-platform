@@ -10,8 +10,10 @@
   <body>
     <!-- Header element for blog title -->
     <header><h1>Personal Blog</h1></header>
+
     <!-- Button element to expand/collapse create/edit section -->
     <button id="toggleFormBtn">+ New Post</button>
+
     <!-- Section for create/edit form -->
     <section id="formSection" class="form-section collapsed">
       <!-- Action title for blog form -->
@@ -40,6 +42,18 @@
     <!-- Section for blog posts -->
     <section class="posts-section">
       <h2>Blog Posts</h2>
+
+      <!-- Sort Dropdown -->
+      <label for="sortSelect" style="display: block; margin-top: 8px"
+        >Sort Posts:</label
+      >
+      <!-- Selection options for sorting -->
+      <select id="sortSelect" aria-label="Sort posts">
+        <option value="newest">Newest First</option>
+        <option value="oldest">Oldest First</option>
+        <option value="title">Title (A-Z)</option>
+      </select>
+
       <div id="postsContainer">
         <!-- Posts will go here -->
       </div>

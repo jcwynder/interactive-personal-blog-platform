@@ -3,7 +3,8 @@
 // ===========================================
 
 let posts = []; // Initializes an empty array to store post objects
-let editingPostId = null; // Variable to hold ID of the post being edited, or null if no post is being edited.
+let editingPostId = null; // Variable to hold ID of the post being edited, or null if no post is being edited
+let currentSort = localStorage.getItem("sortPreference") || "newest"; // Sort preference
 
 // ===========================================
 // 2. DOM Element References
@@ -36,15 +37,17 @@ function formatTimestamp(timestamp) {
 function savePostsToStorage() {
   // Saves the current 'posts' array to the browser's local storage after converting it to a JSON string
   localStorage.setItem("posts", JSON.stringify(posts));
+  // Saves the current sort option to the browser's local storage
+  localStorage.setItem("sortPreference", currentSort);
 }
 
 function loadPostsFromStorage() {
+  // Loads posts from local storage
+  const stored = localStorage.getItem("posts");
   /*
-  Loads posts from local storage. If posts exist, it parses the JSON string back into an array;
+  If posts are found, it parses the JSON string back into an array
   Otherwise, it initializes an empty array
   */
-  const stored = localStorage.getItem("posts");
-  // FIX: Pass 'stored' to JSON.parse
   posts = stored ? JSON.parse(stored) : [];
 }
 
@@ -63,6 +66,16 @@ function renderPosts() {
   // Clears current content of the posts container to prepare for re-rendering
   postsContainer.innerHTML = "";
 
+  let sortedPosts = [...posts];
+
+  if (currentSort === "newest") {
+    sortedPosts.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+  } else if (currentSort === "oldest") {
+    sortedPosts.sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
+  } else if (currentSort === "title") {
+    sortedPosts.sort((a, b) => a.title.localeCompare(b.title));
+  }
+
   // If there are no posts:
   if (posts.length === 0) {
     // Empty state message displays
@@ -75,7 +88,7 @@ function renderPosts() {
   }
 
   // Iterates over each post in the 'posts' array
-  posts.forEach((post) => {
+  sortedPosts.forEach((post) => {
     // Creates a new div element for each post
     const postDiv = document.createElement("div");
     // Assigns a CSS class for styling (FIX: Changed "posts" to "post" for consistency)
@@ -241,7 +254,19 @@ toggleFormBtn.addEventListener("click", () => {
 });
 
 // ===========================================
-// 8. Initialize App
+// 8. Sort Select Change Handler
+// ===========================================
+
+sortSelect.value = currentSort;
+
+sortSelect.addEventListener("change", (e) => {
+  currentSort = e.target.value;
+  localStorage.setItem("sortPreference", currentSort);
+  renderPosts();
+});
+
+// ===========================================
+// 9. Initialize App
 // ===========================================
 
 // Loads any previously saved posts from local storage into the "posts" array when the application starts
