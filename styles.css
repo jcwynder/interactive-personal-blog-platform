@@ -146,6 +146,20 @@ button:hover {
 }
 
 /* --------------------------------------
+   Empty State Styling
+----------------------------------------*/
+.empty-state {
+  text-align: center;
+  color: #777;
+  font-style: italic;
+  padding: 40px 10px;
+  background-color: #fdfdfd;
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+/* --------------------------------------
    Post Title Styling
 ----------------------------------------*/
 .post-title {

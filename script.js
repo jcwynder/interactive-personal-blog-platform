@@ -61,8 +61,18 @@ function clearForm() {
 
 function renderPosts() {
   // Clears current content of the posts container to prepare for re-rendering
-  // FIX: Changed '-' to '='
   postsContainer.innerHTML = "";
+
+  // If there are no posts:
+  if (posts.length === 0) {
+    // Empty state message displays
+    const emptyMessage = document.createElement("div");
+    emptyMessage.className = "empty-state";
+    emptyMessage.textContent =
+      "No blog posts yet. Click '+ New Post' to get started!";
+    postsContainer.appendChild(emptyMessage);
+    return;
+  }
 
   // Iterates over each post in the 'posts' array
   posts.forEach((post) => {
