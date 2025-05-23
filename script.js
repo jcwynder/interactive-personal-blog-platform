@@ -66,13 +66,30 @@ function renderPosts() {
   // Clears current content of the posts container to prepare for re-rendering
   postsContainer.innerHTML = "";
 
+  /* 
+  Creates a shallow copy of the 'posts' array
+  This allows sorting without modifying the the original 'posts' array directly
+  */
   let sortedPosts = [...posts];
 
+  // Checks the value of 'currentSort' to determine the sorting order
   if (currentSort === "newest") {
+    /* 
+    Sorts the 'sortedPosts' array by timestamp in descending order (newest first)
+    It subtracts the earlier date from the later date; a positive result means 'b' is newer than 'a'.
+    */
     sortedPosts.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
   } else if (currentSort === "oldest") {
+    /* 
+    Sorts the 'sortedPosts' array by timestamp in ascending order (oldest first)
+    It subtracts the later date from the earlier date; a positive result means 'a' is newer than 'b'.
+    */
     sortedPosts.sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
   } else if (currentSort === "title") {
+    /* 
+    Sorts the 'sortedPosts' array alphabetically by the 'title' property
+    `localeCompare()` is used for proper string comparison, handling different locales and special characters correctly
+    */
     sortedPosts.sort((a, b) => a.title.localeCompare(b.title));
   }
 
@@ -257,11 +274,16 @@ toggleFormBtn.addEventListener("click", () => {
 // 8. Sort Select Change Handler
 // ===========================================
 
+// Sets the initial value of the sort dropdown to the currently active sort preference
 sortSelect.value = currentSort;
 
+// Adds an event listener to the sort dropdown that triggers whenever its selected value changes
 sortSelect.addEventListener("change", (e) => {
+  // Updates `currentSort` with the newly selected value from the dropdown
   currentSort = e.target.value;
+  // Saves the user's new sorting preference to local storage so it persists across sessions
   localStorage.setItem("sortPreference", currentSort);
+  // Re-renders the posts to display them according to the new sorting order
   renderPosts();
 });
 
