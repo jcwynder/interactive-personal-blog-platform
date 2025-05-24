@@ -3,7 +3,6 @@
 - [Interactive Personal Blog Platform](#interactive-personal-blog-platform)
   - [Overview](#overview)
   - [Project Preview](#project-preview)
-    - [Visual Displays of Project:](#visual-displays-of-project)
   - [Development](#development)
     - [1. Header Design](#1-header-design)
     - [2. Content Layout](#2-content-layout)
@@ -57,8 +56,6 @@ In order to create a dynamic and interactive blog, I applied a wide range of con
 [Click Here to Access Interactive Personal Blog Platform](https://htmlpreview.github.io/?https://github.com/jcwynder/interactive-personal-blog-platform/blob/main/index.html)
 
 ## Project Preview
-
-### Visual Displays of Project:
 
 - Initial rendering of blog platform with no saved user data
   ![Design preview for Interactive Personal Blog Platform (initial state rendering)](images/InteractivePersonalBlogPlatformPreview.png)
