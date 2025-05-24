@@ -15,6 +15,8 @@
     - [8. Error Handling](#8-error-handling)
     - [9. Empty State Message](#9-empty-state-message)
     - [10. Smooth Transitions and Hover Effects](#10-smooth-transitions-and-hover-effects)
+  - [Reflection](#reflection)
+  - [Final Thoughts](#final-thoughts)
 
 ## Overview
 
@@ -72,7 +74,7 @@ In order to create a dynamic and interactive blog, I applied a wide range of con
 
 ## Development
 
-The development for this project began with me establishing the type of design I wanted to implement for the blog platform's layout. Basec on the final presentation for this platform, I would describe the overall design as **modern**, **clean**, and **user-friendly**.
+The development for this project began with me establishing the type of design I wanted to implement for the blog platform's layout. Basec on the final presentation for this platform, I would describe the overall design as **modern**, **clean**, and **user-friendly**. To provide these deliverables, I only used **HTML**, **CSS**, and **JavaScript** to develop this project.
 
 Below is a list of key design elements and features applied:
 
@@ -139,3 +141,31 @@ Below is a list of key design elements and features applied:
 - Posts have subtle animations like **hover effects** that lift the post card slightly and give a shadow, providing a more interactive, modern feel.
 
 - The **form transition** (for collapsing and expanding the form) makes the experience smooth and aesthetically pleasing, giving the user a sense of control over the interface.
+
+## Reflection
+
+During this project's progression from start to finish, I ran into many challenges implementing additional features and functions to make the project more dynamic, responsive, interactive, and user-friendly. Initally, I chose a blog platform design that simply implemented the required features listed from the [Overview](#overview) section.
+
+My original plan of presentation was to have two established sections: one for the form with input fields and one for the container of blog posts (posts lists vertically and expand the entire screen in width). As I was finishing up this plan's presentation, I started thinking of myself as a user of the platform, and noted how some things could be added or modified to make it more visually appealing and provide better functionality to it's interface.
+
+Here's a list of ideas I decided to implement for specific purposes (listed by order in which I thought to include):
+
+1. Added the name the blog platform being used (title) to the header section
+2. Added blog post's timestamp information (created and edited) to its card
+3. Created a button to toggle to collapse or expand the form to create or edit a blog post
+4. Established the page's color scheme (blue and green) using the colors of the create/edit button and the colors of the action buttons ("edit" and "delete"). I applied a `background: linear-gradient` color mix to the blog's heading title.
+5. Added confirmation prompt to prevent accidental post deletion
+6. Added empty state message to display if there are no posts on platform
+7. Added blog post filtering functionality (dropdown menu)
+8. Added styling to dropdown menu. This also included adding color from the platform's color scheme
+9. Added floating and overlay functionality to the toggle form button
+10. Added confirmation prompt if user wanted to discard and close form during post's edit if changes are unsaved
+11. Lastly, addded some additional styling to enhance the platform's appearance and provide a smoother experience
+
+Practically all of these implementations required me to look into how they're established and applied to a project. I had to learn and test new information from code that I planned to use to include these ideas into this project.
+
+## Final Thoughts
+
+Given that I thoroughly test code from all three languages, there aren't any issues that I can report. The project implements all required deliverables. Although I did think of additional ideas (such as a character counter below input fields to guide users) that would enhance the project's platform, I chose not to include them due to the amount of time and effort I'd have to apply.
+
+In closing, overall I'm satisfied with the project's presentation and enjoyed establishing it from concept to deployment.
